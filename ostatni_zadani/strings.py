@@ -6,11 +6,11 @@ def convert_czech_date_to_database_format(czech_date):
     database_date = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
     return database_date
 
-def convert_phrase_to_identifiers(phrase, snake_case=True):
+def convert_phrase_to_identifiers(phrase, snake_case=True, camel_case=False):
     words = phrase.split()
     if snake_case:
         identifier = "_".join(words).lower()
-    else:
+    elif camel_case:
         identifier = "".join(word.capitalize() for word in words)
     return identifier
 
